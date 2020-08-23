@@ -10,7 +10,7 @@ $( document ).ready(function() {
         
         $.ajax({
             method: "GET",            
-            url: "asset/pago-ajax.php",
+            url: "assets/pago-ajax.php",
             async: false,        
             data: { 
                 'pagar': 1,
