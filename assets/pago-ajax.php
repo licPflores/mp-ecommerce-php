@@ -93,5 +93,5 @@ if(isset($_REQUEST['pagar'])&&$_REQUEST['pagar']==1){
         'foto'=>str_replace('./','https://licpflores-mp-commerce-php.herokuapp.com/',$_REQUEST['itemImagenUrl'])
     );
     echo print_r($producto);
-    //armar_preferencia($producto);
+    armar_preferencia($producto);
 }
