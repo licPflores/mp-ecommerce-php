@@ -132,12 +132,82 @@
                                         <h3 >
                                             <?php echo $_POST['unit']; ?>
                                         </h3>
-                                        <input type="text" name="item-titulo" id="item-titulo" value="<?php echo $_POST['title'];?>">
-                                        <input type="text" name="item-price" id="item-price" value="<?php echo $_POST['price'];?>">
-                                        <input type="text" name="item-unit" id="item-unit" value="<?php echo $_POST['unit'];?>">                                        
-                                        <input type="text" name="item-foto" id="item-foto" value="<?php echo $_POST['img']; ?>">
+                                        <?php
+                                            // armar todo el boton aca... sin usar ajax.
+                                            require_once '../vendor/autoload.php';
+        
+  
+    
+    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+    //MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+
+    # creando la preferencia.
+    $preference = new MercadoPago\Preference();
+
+    #item
+
+    $item1 = new MercadoPago\Item();
+    $item1->id = $producto['id'];
+    $item1->title = $_POST['title']; 
+    $item1->quantity = $_POST['unit'];
+    $item1->description = 'Dispositivo móvil de Tienda e-commerce';
+    $item1->unit_price = $_POST['price'];
+    $item1->picture_url = str_replace('./','https://licpflores-mp-commerce-php.herokuapp.com/',$_POST['img']);
+    $item1->currency_id = 'ARS';
+
+    #pagador
+
+    $pagador = new MercadoPago\Payer();
+    $pagador->name ='Lalo';
+    $pagador->surname ='Landa';
+    $pagador->email ='test_user_63274575@testuser.com';
+    $pagador->name ='Lalo';
+    $pagador->address = array(
+        "street_name" => "False",
+        "street_number" => 123,
+        "zip_code" => "111"
+    );
+    $pagador->phone = array(
+        "area_code" => "11",
+        "number" => "22223333"
+    );
+
+    # datos preferencia.
+    $preference->items = array($item1);
+    $preference->payer = $pagador;
+    $preference->back_urls = array(
+        "success" => "https://licpflores-mp-commerce-php.herokuapp.com/assets/estado-compra?estado=exito",
+        "failure" => "https://licpflores-mp-commerce-php.herokuapp.com/assets/estado-compra?estado=fallo",
+        "pending" => "https://licpflores-mp-commerce-php.herokuapp.com/assets/estado-compra?estado=pendiente"
+    );
+    
+    $preference->auto_return = "approved";
+    $preference->notification_url="https://licpflores-mp-commerce-php.herokuapp.com/assets/endpoint-mp.php";
+    #como se paga.
+
+    $preference->payment_methods = array(
+        "excluded_payment_types" => array(
+            array("id" => "amex")
+        ),
+        "excluded_payment_types" => array(
+            array("id" => "atm")
+        ),
+        "installments" => 6
+    );
+    
+    $preference->external_reference = "lic.pflores@gmail.com";
+    
+    $preference->save();
+    echo "<a href='$preference->sandbox_init_point'> Pagar la compra </a>";
+                                        
+                                        ?>
+                                        <!-- <input type="text" name="item-titulo" id="item-titulo" value="<?php echo $_POST['title'];?>"> -->
+                                        <!-- <input type="text" name="item-price" id="item-price" value="<?php echo $_POST['price'];?>"> -->
+                                        <!-- <input type="text" name="item-unit" id="item-unit" value="<?php echo $_POST['unit'];?>">                                         -->
+                                        <!-- <input type="text" name="item-foto" id="item-foto" value="<?php echo $_POST['img']; ?>"> -->
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post" >Pagar la compra</button>
+                                    <!-- <button type="submit" class="mercadopago-button" formmethod="post" >Pagar la compra</button> -->
+                                   
                                 </div>
                             </div>
                         </div>
