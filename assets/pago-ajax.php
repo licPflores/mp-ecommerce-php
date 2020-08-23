@@ -5,6 +5,9 @@
  * Datos del pagador:
 
  */
+ini_set('error_reporting', E_ALL);
+
+ini_set('display_errors', 1);
 
 function armar_preferencia($producto){
 
@@ -49,7 +52,8 @@ function armar_preferencia($producto){
     );
 
     # datos preferencia.
-    
+    $preference->items = array($item1);
+    $preference->payer = $pagador;
     $preference->back_urls = array(
         "success" => "https://licpflores-mp-commerce-php.herokuapp.com/assets/estado-compra?estado=exito",
         "failure" => "https://licpflores-mp-commerce-php.herokuapp.com/assets/estado-compra?estado=fallo",
