@@ -44,7 +44,7 @@ function armar_preferencia($producto){
         "street_number" => 123,
         "zip_code" => "111"
     );
-    $payer->phone = array(
+    $pagador->phone = array(
         "area_code" => "11",
         "number" => "22223333"
     );
