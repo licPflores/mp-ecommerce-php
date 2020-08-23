@@ -10,15 +10,13 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 function armar_preferencia($producto){
-
-    require_once '../vendor/autoload.php';
+    require __DIR__  . '/vendor/autoload.php';
+    //require_once '../vendor/autoload.php';
         
-    MercadoPago\SDK::initialize(); 
-    $config = MercadoPago\Sdk::config(); 
-
-    //MercadoPago\SDK::setIntegratorId("INTEGRATOR_ID");
-    $config->set('ACCESS_TOKEN', 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-    $config->set('INTEGRATOR_ID','dev_24c65fb163bf11ea96500242ac130004');
+  
+    MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+    
 
     # creando la preferencia.
     $preference = new MercadoPago\Preference();
