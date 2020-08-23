@@ -121,16 +121,16 @@
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
+                                                    <span data-ase-truncate="2"><?php echo $_POST['title']; ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo "$".$_POST['price'] ?>
+                                            <?php echo "$".$_POST['price']; ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo $_POST['unit'] ?>
+                                            <?php echo $_POST['unit']; ?>
                                         </h3>
                                         <input type="text" name="item-titulo" id="item-titulo" value="<?php echo $_POST['title'];?>">
                                         <input type="text" name="item-price" id="item-price" value="<?php echo $_POST['price'];?>">

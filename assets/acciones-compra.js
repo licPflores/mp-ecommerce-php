@@ -3,8 +3,8 @@ $( document ).ready(function() {
     $('.mercadopago-button').on('click',function(){
         let itemTitulo,itemPrecio,itemCantidad,itemImagenUrl;
         itemTitulo      = $('#item-titulo').val();
-        itemPrecio      = $('#item-precio').val();
-        itemCantidad    = $('#item-cantidad').val();
+        itemPrecio      = $('#item-price').val();
+        itemCantidad    = $('#item-unit').val();
         itemImagenUrl   = $('#item-foto').val();
 
         
@@ -30,7 +30,7 @@ $( document ).ready(function() {
           alert( "error" );
         })
         .always(function() {
-          alert( "complete" );
+          //alert( "complete" );
         });
     });
 });
