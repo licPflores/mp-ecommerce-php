@@ -10,8 +10,8 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 function armar_preferencia($producto){
-    require __DIR__  . '../vendor/autoload.php';
-    //require_once '../vendor/autoload.php';
+   // require __DIR__  . '../vendor/autoload.php';
+   require_once '../vendor/autoload.php';
         
   
     MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
