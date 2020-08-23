@@ -22,7 +22,7 @@ $( document ).ready(function() {
             dataType: "json"
         })
         .done(function(data) {
-            console.log('regreso de la pereferncia');
+            console.log('regreso de la preferncia');
             console.table(data);
             var url = data.response.init_point;
             //window.location.href=url;         

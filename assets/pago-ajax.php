@@ -72,13 +72,15 @@ function armar_preferencia($producto){
     
     $preference->external_reference = "lic.pflores@gmail.com";
     
-    $vuelta= $preference->save();
+    $preference->save();
+    
+
 
 
     
     //header('Content-Type: application/json');
     header('Content-Type: application/json');
-    echo json_encode($vuelta);
+    //echo json_encode($vuelta);
     echo json_encode( $preference );
 }
 
@@ -92,6 +94,6 @@ if(isset($_REQUEST['pagar'])&&$_REQUEST['pagar']==1){
         'cantidad'=>$_REQUEST['itemCantidad'],
         'foto'=>str_replace('./','https://licpflores-mp-commerce-php.herokuapp.com/',$_REQUEST['itemImagenUrl'])
     );
-    echo print_r($producto);
+   // echo print_r($producto);
     armar_preferencia($producto);
 }
