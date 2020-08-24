@@ -97,10 +97,12 @@
                                 if(isset($_REQUEST['estado'])&&$_REQUEST['estado']=='exito'){
                                     echo '<h4>Muy Bien! pago finalizado</h4>';
                                     echo '<div>';
-                                    echo '<p><span>Collection_id:<strong>'.$_REQUEST['collection_id'].'</strong></span>';                                   
-                                    echo '<p><span>External_reference:<strong>'.$_REQUEST['external_reference'].'</strong></span>';
-                                    echo '<p><span>payment_type:<strong>'.$_REQUEST['payment_type'].'</strong></span>';                                  
-                                    echo '<p><textarea>'.json_encode($_REQUEST).'</textarea></p>';
+                                    echo '<p><span>Collection_id: <strong>'.$_REQUEST['collection_id'].'</strong></span>';                                   
+                                    echo '<p><span>External_reference: <strong>'.$_REQUEST['external_reference'].'</strong></span>';
+                                    echo '<p><span>payment_type: <strong>'.$_REQUEST['payment_type'].'</strong></span>';                                  
+                                    // echo '<p><textarea style="width:100%">'.json_encode($_REQUEST).'</textarea></p>';
+                                    // echo '<p><textarea style="width:100%">'.json_encode($_POST).'</textarea></p>';
+                                    // echo '<p><textarea style="width:100%">'.json_encode($_GET).'</textarea></p>';
                                     echo '</div>';    
                                 }
 

@@ -37,7 +37,7 @@ function armar_preferencia_lib($producto){
             "address" => array(
                 "street_name" => "False",
                 "street_number" => 123,
-                "zip_code" => "111"
+                "zip_code" => "1111"
             ),
             "phone" => array(
                 "area_code" => "11",
@@ -45,7 +45,7 @@ function armar_preferencia_lib($producto){
             ),
         ),
         "payment_methods"=>array(
-            "excluded_payment_types" => array(
+            "excluded_payment_methods" => array(
                 array("id" => "amex")
             ),
             "excluded_payment_types" => array(
