@@ -97,16 +97,17 @@
                                 if(isset($_REQUEST['estado'])&&$_REQUEST['estado']=='exito'){
                                     echo '<h4>Muy Bien! pago finalizado</h4>';
                                     echo '<div>';
-                                    echo '<span>Collection_id:<strong>'.$_REQUEST['collection_id'].'</strong></span>';                                   
-                                    echo '<span>External_reference:<strong>'.$_REQUEST['external_reference'].'</span>';
-                                    echo '<span>payment_type:<strong>'.$_REQUEST['payment_type'].'</span>';                                  
-
+                                    echo '<p><span>Collection_id:<strong>'.$_REQUEST['collection_id'].'</strong></span>';                                   
+                                    echo '<p><span>External_reference:<strong>'.$_REQUEST['external_reference'].'</strong></span>';
+                                    echo '<p><span>payment_type:<strong>'.$_REQUEST['payment_type'].'</strong></span>';                                  
+                                    echo '<p><textarea>'.json_encode($_REQUEST).'</textarea></p>';
                                     echo '</div>';    
                                 }
+
                                 if(isset($_REQUEST['estado'])&&$_REQUEST['estado']=='pendiente'){
                                     echo '<h4>Tu pago quedo pendiente!</h4>';
                                 }
-                                if(isset($_REQUEST['estado'])&&$_REQUEST['estado']='fallo'){
+                                if(isset($_REQUEST['estado'])&&$_REQUEST['estado']=='fallo'){
                                     echo '<h4>Tu pago fue rechazado.</h4>';
                                 }
                             ?>

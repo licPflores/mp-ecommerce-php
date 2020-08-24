@@ -127,19 +127,30 @@
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo "$".$_POST['price']; ?>
+                                            Precio: <strong><?php echo "$".number_format($_POST['price'],0,',','.'); ?></strong>
                                         </h3>
                                         <h3 >
-                                            <?php echo $_POST['unit']; ?>
+                                            Cantidad: <strong><?php echo $_POST['unit']; ?></strong>
                                         </h3>
-                                        <?php
+<?php
+/** ERROR DE CONFIGURACION DE PHP 
+* Fatal error: Can't use function return value in write context in /var/www/vhosts/administranet.com.ar/httpdocs/mp-ecommerce-php/vendor/mercadopago/dx-php/src/MercadoPago/Config.php on line 116
+ */
+/*
+ini_set('error_reporting', E_ALL);
+
+ini_set('display_errors', 1);
                                             // armar todo el boton aca... sin usar ajax.
-                                            require_once '../vendor/autoload.php';
+    require_once 'vendor/autoload.php';
         
-  
+    //MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
     
-    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
     //MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+    MercadoPago\MercadoPagoSDK::initialize(); 
+    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+    //$config = MercadoPago\SDK::config(); 
+    //$config->set('ACCESS_TOKEN', 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+   // $config->set('INTEGRATOR_ID', 'dev_24c65fb163bf11ea96500242ac130004');
 
     # creando la preferencia.
     $preference = new MercadoPago\Preference();
@@ -198,16 +209,16 @@
     $preference->external_reference = "lic.pflores@gmail.com";
     
     $preference->save();
-    echo "<a href='$preference->sandbox_init_point'> Pagar la compra </a>";
-                                        
+    echo "<a href='$preference->sandbox_init_point' class='mercadopago-button'> Pagar la compra </a>";
+     */                                   
                                         ?>
-                                        <!-- <input type="text" name="item-titulo" id="item-titulo" value="<?php echo $_POST['title'];?>"> -->
-                                        <!-- <input type="text" name="item-price" id="item-price" value="<?php echo $_POST['price'];?>"> -->
-                                        <!-- <input type="text" name="item-unit" id="item-unit" value="<?php echo $_POST['unit'];?>">                                         -->
-                                        <!-- <input type="text" name="item-foto" id="item-foto" value="<?php echo $_POST['img']; ?>"> -->
+                                        <input type="hidden" name="item-titulo" id="item-titulo" value="<?php echo $_POST['title'];?>">
+                                        <input type="hidden" name="item-price" id="item-price" value="<?php echo $_POST['price'];?>">
+                                        <input type="hidden" name="item-unit" id="item-unit" value="<?php echo $_POST['unit'];?>">                                        
+                                        <input type="hidden" name="item-foto" id="item-foto" value="<?php echo $_POST['img']; ?>">
                                     </div>
-                                    <!-- <button type="submit" class="mercadopago-button" formmethod="post" >Pagar la compra</button> -->
-                                   
+                                    <button type="submit" class="mercadopago-button" formmethod="post" >Pagar la compra</button>
+
                                 </div>
                             </div>
                         </div>

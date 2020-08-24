@@ -14,6 +14,7 @@ if(isset($_REQUEST["type"])&&$_REQUEST["type"]=="payment"){
     file_put_contents('payment-'.date('Ymdhis').'.json', json_encode($_REQUEST));
 }
 
+file_put_contents('endpoing-'.date('Ymdhis').'.json', json_encode($_REQUEST));
 
 /*
 switch($_GET["topic"]) {
