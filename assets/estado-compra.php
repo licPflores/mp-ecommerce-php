@@ -94,9 +94,9 @@
                         </div>
                         <div class="as-accessories-results  as-search-desktop">
                             <?php 
-                            ini_set('error_reporting', E_ALL);
+                           // ini_set('error_reporting', E_ALL);
 
-                            ini_set('display_errors', 1);
+                        //    ini_set('display_errors', 1);
                                 if(isset($_REQUEST['estado'])&&$_REQUEST['estado']=='exito'){
                                     echo '<h4>Muy Bien! pago finalizado</h4>';
                                     echo '<div>';
