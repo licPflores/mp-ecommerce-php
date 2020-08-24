@@ -25,6 +25,7 @@ file_put_contents('endpoing-get'.date('Ymdhis').'.json', json_encode($_GET));
 $json_event = file_get_contents('php://input', true);
 $event = $json_event;
 file_put_contents('webhook.json', $event,FILE_APPEND);
+http_response_code(200);
 /*
 switch($_GET["topic"]) {
         case "payment":
